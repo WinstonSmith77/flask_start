@@ -1,5 +1,7 @@
 <html>
     <head>
+      <script src='https://unpkg.com/maplibre-gl@latest/dist/maplibre-gl.js'></script>
+      <link href='https://unpkg.com/maplibre-gl@latest/dist/maplibre-gl.css' rel='stylesheet' />
         {% if title %}
         <title>{{ title }} - microblog</title>
         {% else %}
@@ -23,5 +25,14 @@
         {% endif %}
         {% endwith %}
         {% block content %}{% endblock %}
+        <div id='map' style='width: 800px; height: 600px;'></div>
+        <script>
+          var map = new maplibregl.Map({
+            container: 'map',
+            style: 'https://demotiles.maplibre.org/style.json', // stylesheet location
+            center: [-74.5, 40], // starting position [lng, lat]
+            zoom: 9 // starting zoom
+          }); 
+        </script>
     </body>
 </html>
