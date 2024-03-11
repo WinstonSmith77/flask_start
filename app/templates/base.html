@@ -31,8 +31,12 @@
             container: 'map',
             style: 'https://demotiles.maplibre.org/style.json', // stylesheet location
             center: [-74.5, 40], // starting position [lng, lat]
-            zoom: 9 // starting zoom
+            zoom: 9, // starting zoom
+            maplibreLogo : false
+            
           }); 
+          // Add controls (optional)
+          map.addControl(new maplibregl.NavigationControl());
         </script>
     </body>
 </html>
