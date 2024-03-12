@@ -55,26 +55,26 @@
                })
             );
 
-           
+          const id =  'showTileBoundaries'
 
-          const group = document.getElementById('showTileBoundaries');  
+          const group = document.getElementById(id);  
           const children = group.children;
 
-          children[0].addEventListener('click', turOn); 
-          children[1].addEventListener('click', turOff);  
+          children[0].addEventListener('click', turnOn); 
+          children[1].addEventListener('click', turnOff);  
 
-          function turOn(bla) {
-            turOnOff(true)
+          function turnOn() {
+            turnOnOrOff(true)
           }   
           
-          function turOnOff(value) {
+          function turnOnOrOff(value) {
              map.showTileBoundaries = value;
              //map.showCollisionBoxes = value;
              //map['showOverdrawInspector'] = value;
           }  
 
-          function turOff() {
-            turOnOff(false)
+          function turnOff() {
+            turnOnOrOff(false)
           }   
   
 
