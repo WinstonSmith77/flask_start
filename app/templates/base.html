@@ -65,20 +65,32 @@
             label.innerHTML = id
             group.append(label)  
 
-            function addButton(name, event){
+            function addButton(name, event, getValue){
+              
+              function getText(){
+                return name + ' ' + getValue();
+              }
+              
               const newButton = document.createElement("button");
-              newButton.innerHTML = name
+              newButton.innerHTML = getText()
               group.append(newButton)
-              newButton.addEventListener('click', event); 
+              eventWrapper = function(){
+                event();
+                newButton.innerHTML = getText();
+              };
+              newButton.addEventListener('click', eventWrapper); 
             }
 
-            addButton('on', function(){setValue(id, true);});
-            addButton('off', function(){setValue(id, false);})
+            addButton('toogle', function(){toogleValue(id);}, function(){return getValue(id);});
+          
           }
           
+          function getValue(id) {
+            return map[id];
+          }  
           
-          function setValue(id, value) {
-             map[id] = value;
+          function toogleValue(id) {
+             map[id] = !map[id];
              //map.showCollisionBoxes = value;
              //map['showOverdrawInspector'] = value;
           }  
