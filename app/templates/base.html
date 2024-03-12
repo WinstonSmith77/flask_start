@@ -26,6 +26,7 @@
         {% endwith %}
         {% block content %}{% endblock %}
         <div id ='showTileBoundaries'>
+          <label id = label></label>
           <button id = 'on'>On</button>
           <button id = 'off'>Off</button>
         </div>
@@ -57,11 +58,16 @@
 
           const id =  'showTileBoundaries'
 
-          const group = document.getElementById(id);  
-          const children = group.children;
+          setEvents(id)
 
-          children[0].addEventListener('click', function(){turnOn(id);}); 
-          children[1].addEventListener('click', function(){turnOff(id);});  
+          function setEvents(id){
+            const group = document.getElementById(id);  
+            const children = group.children;
+
+            children[0].addEventListener('click', function(){turnOn(id);}); 
+            children[1].addEventListener('click', function(){turnOff(id);});  
+          }
+          
 
           function turnOn(id) {
             turnOnOrOff(id, true)
