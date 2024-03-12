@@ -26,19 +26,13 @@
         {% endwith %}
         {% block content %}{% endblock %}
         <div id ='showTileBoundaries'>
-          <label id = label></label>
-          <button id = 'on'>On</button>
-          <button id = 'off'>Off</button>
+          
         </div>
         <div id ='showCollisionBoxes'>
-          <label id = label></label>
-          <button id = 'on'>On</button>
-          <button id = 'off'>Off</button>
+        
         </div>
         <div id ='showOverdrawInspector'>
-          <label id = label></label>
-          <button id = 'on'>On</button>
-          <button id = 'off'>Off</button>
+         
         </div>
         <div id='map' style='width: 800px; height: 600px;'></div>
         <script>
@@ -73,12 +67,20 @@
             const group = document.getElementById(id);  
             const children = group.children;
 
-            const newDiv = document.createElement("button");
-            children.insert(newDiv);
+            const off = document.createElement("button");
+            off.innerHTML = 'off'
+            group.prepend(off)
 
-            children.namedItem('label').innerHTML = id;
-            children.namedItem('on').addEventListener('click', function(){turnOn(id);}); 
-            children.namedItem('off').addEventListener('click', function(){turnOff(id);});  
+            const on = document.createElement("button");
+            on.innerHTML = 'on'
+            group.prepend(on)
+
+            const label = document.createElement("label");
+            label.innerHTML = id
+            group.prepend(label)
+            
+            on.addEventListener('click', function(){turnOn(id);}); 
+            off.addEventListener('click', function(){turnOff(id);});  
           }
           
 
