@@ -74,6 +74,7 @@
             const children = group.children;
 
             const newDiv = document.createElement("button");
+            children.insert(newDiv);
 
             children.namedItem('label').innerHTML = id;
             children.namedItem('on').addEventListener('click', function(){turnOn(id);}); 
