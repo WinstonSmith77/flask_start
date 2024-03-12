@@ -60,21 +60,21 @@
           const group = document.getElementById(id);  
           const children = group.children;
 
-          children[0].addEventListener('click', turnOn); 
-          children[1].addEventListener('click', turnOff);  
+          children[0].addEventListener('click', function(){turnOn(id);}); 
+          children[1].addEventListener('click', function(){turnOff(id);});  
 
-          function turnOn() {
-            turnOnOrOff(true)
+          function turnOn(id) {
+            turnOnOrOff(id, true)
           }   
           
-          function turnOnOrOff(value) {
-             map.showTileBoundaries = value;
+          function turnOnOrOff(id, value) {
+             map[id] = value;
              //map.showCollisionBoxes = value;
              //map['showOverdrawInspector'] = value;
           }  
 
-          function turnOff() {
-            turnOnOrOff(false)
+          function turnOff(id) {
+            turnOnOrOff(id, false)
           }   
   
 
