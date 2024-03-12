@@ -56,7 +56,8 @@
                })
             );
 
-          const id =  'showTileBoundaries'
+          const ids =  ['showTileBoundaries']
+          ids.forEach(setEvents)
 
           setEvents(id)
 
@@ -64,8 +65,9 @@
             const group = document.getElementById(id);  
             const children = group.children;
 
-            children[0].addEventListener('click', function(){turnOn(id);}); 
-            children[1].addEventListener('click', function(){turnOff(id);});  
+            children[0].innerHTML = id;
+            children[1].addEventListener('click', function(){turnOn(id);}); 
+            children[2].addEventListener('click', function(){turnOff(id);});  
           }
           
 
