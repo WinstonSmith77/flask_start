@@ -26,7 +26,7 @@
         {% endwith %}
         {% block content %}{% endblock %}
         <div>
-          <button id = 'check'>Click me!!</button>
+          <button id = 'infoToggle'>Click me!!</button>
         </div>
         <div id='map' style='width: 800px; height: 600px;'></div>
         <script>
@@ -53,6 +53,13 @@
                   exaggeration: 1
                })
             );
+          infoToggle.addEventListener('click', handleClick);  
+
+          function handleClick() {
+             map.showCompass = !map.showCompass;
+          }    
+  
+
         </script>
     </body>
 </html>
