@@ -25,7 +25,7 @@
         {% endif %}
         {% endwith %}
         {% block content %}{% endblock %}
-        <div>
+        <div id ='showTileBoundaries'>
           <button id = 'on'>On</button>
           <button id = 'off'>Off</button>
         </div>
@@ -54,19 +54,20 @@
                   exaggeration: 1
                })
             );
-          on.addEventListener('click', turOn); 
-          off.addEventListener('click', turOff);  
+          showTileBoundaries['on'].addEventListener('click', turOn); 
+          showTileBoundaries['off'].addEventListener('click', turnOff); 
 
-          function turOn() {
+          function turOn(bla) {
             turOnOff(true)
           }   
           
           function turOnOff(value) {
              map.showTileBoundaries = value;
-             map.showCollisionBoxes = value;
+             //map.showCollisionBoxes = value;
+             //map['showOverdrawInspector'] = value;
           }  
 
-          function turOff() {
+          function turnOff() {
             turOnOff(false)
           }   
   
