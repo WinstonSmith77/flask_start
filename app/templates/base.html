@@ -28,7 +28,7 @@
         <div>
           <button id = 'check'>Click me!!</button>
         </div>
-        <div id='map' style='width: 1200px; height: 800px;'></div>
+        <div id='map' style='width: 1200px; height: 600px;'></div>
         <script>
           var map = new maplibregl.Map({
             container: 'map',
@@ -36,9 +36,10 @@
             center: [50.67, 7.1], // starting position [lng, lat]
             zoom: 2, // starting zoom
             maplibreLogo : false,
+            showCompass : true,
+            showZoom: true
             });
-            //map.showCompass = true;
-            //mpa.showZoom = true; 
+          
           // Add controls (optional)
           map.addControl(
                new maplibregl.NavigationControl({
@@ -47,6 +48,8 @@
                   showCompass: true
                })
             );
+
+          
             
             map.addControl(
                new maplibregl.TerrainControl({
