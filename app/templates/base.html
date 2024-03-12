@@ -65,15 +65,15 @@
             label.innerHTML = id
             group.append(label)  
 
-            function addButton(group, name, event){
+            function addButton(name, event){
               const newButton = document.createElement("button");
               newButton.innerHTML = name
               group.append(newButton)
               newButton.addEventListener('click', event); 
             }
 
-            addButton(group, 'on', function(){turnOn(id);});
-            addButton(group, 'off', function(){turnOff(id);})
+            addButton('on', function(){turnOn(id);});
+            addButton('off', function(){turnOff(id);})
           }
           
 
