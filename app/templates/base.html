@@ -72,24 +72,18 @@
               newButton.addEventListener('click', event); 
             }
 
-            addButton('on', function(){turnOn(id);});
-            addButton('off', function(){turnOff(id);})
+            addButton('on', function(){setValue(id, true);});
+            addButton('off', function(){setValue(id, false);})
           }
           
-
-          function turnOn(id) {
-            turnOnOrOff(id, true)
-          }   
           
-          function turnOnOrOff(id, value) {
+          function setValue(id, value) {
              map[id] = value;
              //map.showCollisionBoxes = value;
              //map['showOverdrawInspector'] = value;
           }  
 
-          function turnOff(id) {
-            turnOnOrOff(id, false)
-          }   
+           
   
 
         </script>
