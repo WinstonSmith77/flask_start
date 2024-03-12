@@ -73,9 +73,11 @@
             const group = document.getElementById(id);  
             const children = group.children;
 
-            children[0].innerHTML = id;
-            children[1].addEventListener('click', function(){turnOn(id);}); 
-            children[2].addEventListener('click', function(){turnOff(id);});  
+            const newDiv = document.createElement("button");
+
+            children.namedItem('label').innerHTML = id;
+            children.namedItem('on').addEventListener('click', function(){turnOn(id);}); 
+            children.namedItem('off').addEventListener('click', function(){turnOff(id);});  
           }
           
 
