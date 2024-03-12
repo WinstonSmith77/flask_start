@@ -54,8 +54,14 @@
                   exaggeration: 1
                })
             );
-          on.addEventListener('click', turOn); 
-          off.addEventListener('click', turOff);  
+
+           
+
+          const group = document.getElementById('showTileBoundaries');  
+          const children = group.children;
+
+          children[0].addEventListener('click', turOn); 
+          children[1].addEventListener('click', turOff);  
 
           function turOn(bla) {
             turOnOff(true)
