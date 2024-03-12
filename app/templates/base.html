@@ -25,15 +25,8 @@
         {% endif %}
         {% endwith %}
         {% block content %}{% endblock %}
-        <div id ='showTileBoundaries'>
-          
-        </div>
-        <div id ='showCollisionBoxes'>
+        <div id ='buttons'></div>
         
-        </div>
-        <div id ='showOverdrawInspector'>
-         
-        </div>
         <div id='map' style='width: 800px; height: 600px;'></div>
         <script>
           var map = new maplibregl.Map({
@@ -61,26 +54,26 @@
             );
 
           const ids =  ['showTileBoundaries', 'showCollisionBoxes', 'showOverdrawInspector']
-          ids.forEach(setEvents)
+          ids.forEach(function(id){setEvents('buttons', id)})
 
-          function setEvents(id){
-            const group = document.getElementById(id);  
-            const children = group.children;
-
-            const off = document.createElement("button");
-            off.innerHTML = 'off'
-            group.prepend(off)
-
-            const on = document.createElement("button");
-            on.innerHTML = 'on'
-            group.prepend(on)
+          function setEvents(rootName,  id){
+            const root = document.getElementById(rootName);  
+            const group = document.createElement("div");
+            root.append(group);
 
             const label = document.createElement("label");
             label.innerHTML = id
-            group.prepend(label)
-            
-            on.addEventListener('click', function(){turnOn(id);}); 
-            off.addEventListener('click', function(){turnOff(id);});  
+            group.append(label)  
+
+            function addButton(group, name, event){
+              const newButton = document.createElement("button");
+              newButton.innerHTML = name
+              group.append(newButton)
+              newButton.addEventListener('click', event); 
+            }
+
+            addButton(group, 'on', function(){turnOn(id);});
+            addButton(group, 'off', function(){turnOff(id);})
           }
           
 
