@@ -26,7 +26,8 @@
         {% endwith %}
         {% block content %}{% endblock %}
         <div>
-          <button id = 'infoToggle'>Click me!!</button>
+          <button id = 'on'>On</button>
+          <button id = 'off'>Off</button>
         </div>
         <div id='map' style='width: 800px; height: 600px;'></div>
         <script>
@@ -53,11 +54,21 @@
                   exaggeration: 1
                })
             );
-          infoToggle.addEventListener('click', handleClick);  
+          on.addEventListener('click', turOn); 
+          off.addEventListener('click', turOff);  
 
-          function handleClick() {
-             map.showCompass = !map.showCompass;
-          }    
+          function turOn() {
+            turOnOff(true)
+          }   
+          
+          function turOnOff(value) {
+             map.showTileBoundaries = value;
+             map.showCollisionBoxes = value;
+          }  
+
+          function turOff() {
+            turOnOff(false)
+          }   
   
 
         </script>
