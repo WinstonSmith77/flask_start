@@ -1,6 +1,7 @@
 <html>
     <head>
-      <script src='https://unpkg.com/maplibre-gl@latest/dist/maplibre-gl.js'></script>
+      <script src="{{ url_for('static', filename='maplibre-gl-dev.js') }}"></script>
+      <script src="{{ url_for('static', filename='maplibre-gl-dev.js.map') }}"></script>
       <link href='https://unpkg.com/maplibre-gl@latest/dist/maplibre-gl.css' rel='stylesheet' />
         {% if title %}
         <title>{{ title }} - microblog</title>
@@ -53,7 +54,7 @@
                })
             );
 
-          const ids =  ['showTileBoundaries', 'showCollisionBoxes', 'showOverdrawInspector']
+          const ids =  ['showTileBoundaries', 'showCollisionBoxes', 'showOverdrawInspector', 'showPadding']
           ids.forEach(function(id){setEvents('buttons', id)})
 
           function setEvents(rootName,  id){
@@ -95,7 +96,9 @@
              //map['showOverdrawInspector'] = value;
           }  
 
-           
+         const marker = new maplibregl.Marker()
+        .setLngLat([ 7.134450017743774, 50.71797656847229])
+        .addTo(map);
   
 
         </script>
