@@ -1,6 +1,7 @@
 <html>
     <head>
       <script src="{{ url_for('static', filename='maplibre-gl-dev.js') }}"></script>
+      <script src="{{ url_for('static', filename='mapbox-gl-ogc-feature-collection.min.js') }}"></script>
       <script src="{{ url_for('static', filename='maplibre-gl-dev.js.map') }}"></script>
       <link href='https://unpkg.com/maplibre-gl@latest/dist/maplibre-gl.css' rel='stylesheet' />
         {% if title %}
@@ -101,6 +102,28 @@
         .setLngLat([ 7.134450017743774, 50.71797656847229])
         .addTo(map);
   
+       
+
+// map.on('load', () => {
+//     const sourceId = 'collection-src'
+
+//     new OGCFeatureCollection(sourceId, map, {
+//         url: 'https://demo.pygeoapi.io/stable',
+//         collectionId: 'lakes',
+//         limit: 10000
+//     })
+
+//     map.addLayer({
+//         'id': 'lyr',
+//         'source': sourceId,
+//         'type': 'fill',
+//         'paint': {
+//             'fill-color': '#B42222',
+//             'fill-opacity': 0.7
+//         }
+//     })
+// })
+
 
         </script>
     </body>
