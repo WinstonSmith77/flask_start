@@ -1,5 +1,5 @@
 console.log('Hallo')
-var styleFile = './static/bm_web_col.json'
+var styleFile = styleToUse
 //styleFile = 'https://demotiles.maplibre.org/style.json';
 var map = new maplibregl.Map({
     container: 'map',
